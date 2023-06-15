@@ -5,7 +5,7 @@ const router = Router()
 
 const createProduct = new CreateProductController()
 
-
+router.post("/product", createProduct.handle)
 
 
 export { router }
