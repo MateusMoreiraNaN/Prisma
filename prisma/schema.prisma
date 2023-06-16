@@ -18,3 +18,10 @@ model Product{
   //nome da tabela
   @@map("products")
 }
+
+model Category{
+  id String @id @default(uuid())
+  name String
+
+  @@map("categories")
+}
