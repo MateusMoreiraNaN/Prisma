@@ -17,6 +17,7 @@ model Product{
 
   //nome da tabela
   @@map("products")
+  ProductCategory ProductCategory[]
 }
 
 model Category{
@@ -24,4 +25,16 @@ model Category{
   name String
 
   @@map("categories")
+  ProductCategory ProductCategory[]
+}
+
+model ProductCategory{
+  id String @id @default(uuid())
+  id_product String
+  product Product @relation(fields: [id_product], references: [id])
+  id_category String
+  category Category @relation(fields: [id_category], references: [id])
+
+  @@map("products_categories")
+
 }
